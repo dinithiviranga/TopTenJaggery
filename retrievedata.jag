@@ -1,13 +1,25 @@
 <%
-var db = new Database("jdbc:mysql://10.100.5.152:3306/BAMTopTen" , "dinithi", "dinithi");
+var db = new Database("jdbc:mysql://localhost:3306/cepdatasource" , "root", "root");
 
-var query1  ="SELECT * FROM BAMTopTen.topTenCEP UNION SELECT BAMTopTen.TopTen.value, BAMTopTen.TopTen.date FROM BAMTopTen.TopTen order by value desc limit 10;";
+var query1  ="SELECT * FROM topvaluetable order by value desc limit 10;";
 
 var results = db.query(query1);
-print("<table><tr><th>Value</th></tr>");
-print("<tr><td>");
-print(results);
-print("</td></tr>");
+
+
+
+
+print("<table id='keywords' cellspacing='0' cellpadding='0'><tr><th>Value</th><th>date</th></tr>");
+
+for(var i = 0; i < 10; i++) {
+        var val=results[i].date;
+	var date = new Date(Number(1417769260983));
+	
+	var formattedTime= date.toString("MMM dd");
+
+	print("<tr><td>"+results[i].value+"</td><td>"+formattedTime+"</td></tr>");
+}
 print("</table>");
+
+
 
 %>

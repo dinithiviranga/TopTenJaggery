@@ -75,14 +75,15 @@ function loadXMLDoc()
 	xmlhttp.open("GET","retrievedata.jag",true);
 	xmlhttp.send();
 }
+
 </script>
-    </script>
 </head>
 <body>
     <!-- <div class="logo"><img src="images/logo.png" alt=""  /></div> -->
     <div class="logo" style="font-size:65px;">
         <h1 >Top 10 pressure readings</h1><br/>
     </div>
+
      <div id="myDiv">
         <body>
              <div id="wrapper">
