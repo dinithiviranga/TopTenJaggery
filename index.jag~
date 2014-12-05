@@ -1,0 +1,175 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <title>Freshometer - a Movie Search using Jaggery.js</title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.noisy.min.js"></script>
+
+
+    
+<script type="text/javascript">
+
+
+function loadXMLDoc(titletxt)
+{
+
+ if (titletxt==""){
+     document.getElementById("myDiv").innerHTML = "<h4>Ha! tried a blank search didn't you? try again</h4>";
+     exit(0);
+ }
+document.getElementById("myDiv").innerHTML = "<p align='center' style='margin-top:20px'><img src='images/loading.gif' width='50px' height='50px' /></p>";    
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+       document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+     }
+  }
+    
+xmlhttp.open("GET","serverreq.jag?q="+titletxt,true);
+xmlhttp.send();
+}   
+
+
+	this.retrievedata = function() {
+		try {
+			
+			
+		} catch (ex) {
+			alert(ex);
+		}
+	}
+
+function loadXMLDoc()
+{
+	var xmlhttp;
+	if (window.XMLHttpRequest)
+	  {// code for IE7+, Firefox, Chrome, Opera, Safari
+	  xmlhttp=new XMLHttpRequest();
+	  }
+	else
+	  {// code for IE6, IE5
+	  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	  }
+	xmlhttp.onreadystatechange=function()
+	  {
+	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+	    {
+	    document.getElementById("keywords").innerHTML=xmlhttp.responseText;
+	    }
+	}
+	xmlhttp.open("GET","retrievedata.jag",true);
+	xmlhttp.send();
+}
+</script>
+    </script>
+</head>
+<body>
+    <!-- <div class="logo"><img src="images/logo.png" alt=""  /></div> -->
+    <div class="logo" style="font-size:65px;">
+        <h1 >Top 10 pressure readings</h1><br/>
+    </div>
+     <div id="myDiv">
+        <body>
+             <div id="wrapper">
+                  <table id="keywords" cellspacing="0" cellpadding="0">
+                        <thead>
+                              <tr>
+                                    <th><span>Value</span></th>
+                                    <th><span>Date</span></th>
+                              </tr>
+                        </thead>
+                        <tbody>
+                              <tr>
+                                    <td class="lalign"></td>
+                                    <td></td>
+                              </tr>
+                              <tr>
+                                    <td class="lalign"></td>
+                                    <td></td>
+                              </tr>
+                              <tr>
+                                    <td class="lalign"></td>
+                                    <td></td>
+                              </tr>
+                              <tr>
+                                    <td class="lalign"></td>
+                                    <td></td>
+                              </tr>
+                              <tr>
+                                    <td class="lalign"></td>
+                                    <td></td>
+                              </tr>
+                              <tr>
+                                    <td class="lalign"></td>
+                                    <td></td>
+                              </tr>
+                              <tr>
+                                    <td class="lalign"></td>
+                                    <td></td>
+                              </tr>
+                              <tr>
+                                    <td class="lalign"></td>
+                                    <td></td>
+                              </tr>
+                              <tr>
+                                    <td class="lalign"></td>
+                                    <td></td>
+                              </tr>
+                              <tr>
+                                    <td class="lalign"></td>
+                                    <td></td>
+                              </tr>
+                              <tr>
+                                    <td class="lalign"></td>
+                                    <td></td>
+                              </tr>
+                              <tr>
+                                    <td class="lalign"></td>
+                                    <td></td>
+                              </tr>
+                        </tbody>
+                  </table>
+             </div>
+        </body>
+         
+     </div>
+     <form action="javascript:loadXMLDoc(document.searchbar.searchtxt.value);" id="searchbar" name="searchbar">
+      <ul>
+        <li ><a onclick="loadXMLDoc()" id="searchbtn" class="awesome large green">Refresh Now</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<li><a onclick="" id="searchbtn2" class="awesome large green">Refresh after</a></li>
+        <li><input type="text" id="searchtxt" name="searchtxt"/></li> <span style="font-size:18px;">minutes</span>
+
+      </ul>
+  </form>
+<footer>
+
+<div class="shadowmaker"></div>
+</footer>
+
+<script type="text/javascript">
+    $('body').noisy({
+    'intensity' : 1,
+    'size' : '300',
+    'opacity' : 0.127,
+    'fallback' : '',
+    'monochrome' : false
+}).css('background-color', '#006680');
+</script>
+
+</body>
+</html>
