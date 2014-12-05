@@ -12,7 +12,7 @@ print("<table id='keywords' cellspacing='0' cellpadding='0'><tr><th>Value</th><t
 
 for(var i = 0; i < 10; i++) {
         var val=results[i].date;
-	var date = new Date(Number(1417769260983));
+	var date = new Date(Number(val));
 	
 	var formattedTime= date.toString("MMM dd");
 
