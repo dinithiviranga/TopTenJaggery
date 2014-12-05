@@ -1,7 +1,8 @@
 <%
 var db = new Database("jdbc:mysql://10.100.5.152:3306/BAMTopTen" , "dinithi", "dinithi");
 
-var query1  ="SELECT * FROM topTenCEP;";
+var query1  ="SELECT * FROM BAMTopTen.topTenCEP UNION SELECT BAMTopTen.TopTen.value, BAMTopTen.TopTen.date FROM BAMTopTen.TopTen order by value desc limit 10;";
+
 var results = db.query(query1);
 print("<table><tr><th>Value</th></tr>");
 print("<tr><td>");
