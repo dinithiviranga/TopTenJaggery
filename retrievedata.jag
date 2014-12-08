@@ -1,3 +1,13 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <title>MaxK Value</title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.noisy.min.js"></script>
+</head>
 <%
 var db = new Database("jdbc:mysql://localhost:3306/cepdatasource" , "root", "root");
 
@@ -8,7 +18,7 @@ var results = db.query(query1);
 
 
 
-print("<table id='keywords' cellspacing='0' cellpadding='0'><tr><th>Value</th><th>date</th></tr>");
+print("<table id='keywords'><tr style='font-size:20px;' height='35px' valign='middle'><th>Rank</th><th>Value</th><th>Date</th></tr>");
 
 for(var i = 0; i < 10; i++) {
         var val=results[i].date;
@@ -16,10 +26,12 @@ for(var i = 0; i < 10; i++) {
 	
 	var formattedTime= date.toString("MMM dd");
 
-	print("<tr><td>"+results[i].value+"</td><td>"+formattedTime+"</td></tr>");
+	print("<tr><td width='10%'>"+(i+1)+"</td><td width='30%'>"+results[i].value+"</td width='60%'><td>"+formattedTime+"</td></tr>");
 }
 print("</table>");
 
 
 
 %>
+
+</html>
